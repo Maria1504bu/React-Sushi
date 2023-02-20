@@ -1,12 +1,19 @@
+import React from 'react';
 import Header from './components/Header';
 import Categories from './components/Categories';
 import Sort from './components/Sort';
 import SushiBlock from './components/SushiBlock'; 
 
-import sushi from './assets/sushi.json'
 import './scss/app.scss';
 
 function App() {
+  const [sushi, setSushi] = React.useState([]);
+  
+  React.useEffect(() => {
+    fetch("https://63f3a4c5de3a0b242b46ab95.mockapi.io/items")
+    .then((res) => res.json())
+    .then((items) => setSushi(items))
+  }, [])
     return (
       <div className='wrapper'>
         <Header />
