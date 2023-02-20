@@ -1,8 +1,8 @@
 @import '../variables';
 
 .header {
-  border-bottom: 1px solid $gray-line;
-  padding: 40px 0;
+  border-bottom: 3px solid $gray-line;
+  padding: 20px 0;
 
   .container {
     display: flex;
@@ -22,6 +22,7 @@
     display: flex;
 
     img {
+      height: 100%;
       margin-right: 15px;
     }
 
