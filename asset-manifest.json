@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.33acfb0f.css",
+    "main.js": "/static/js/main.bc458013.js",
+    "static/media/sushi-logo.png": "/static/media/sushi-logo.9889ff8cc47f0526b782.png",
+    "index.html": "/index.html",
+    "main.33acfb0f.css.map": "/static/css/main.33acfb0f.css.map",
+    "main.bc458013.js.map": "/static/js/main.bc458013.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.33acfb0f.css",
+    "static/js/main.bc458013.js"
+  ]
+}
