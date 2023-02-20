@@ -1,9 +1,9 @@
 import Header from './components/Header';
 import Categories from './components/Categories';
 import Sort from './components/Sort';
-import PizzaBlock from './components/PizzaBlock'; 
+import SushiBlock from './components/SushiBlock'; 
 
-import pizzas from './assets/sushi.json'
+import sushi from './assets/sushi.json'
 import './scss/app.scss';
 
 function App() {
@@ -16,10 +16,10 @@ function App() {
               <Categories />
               <Sort />
             </div>
-            <h2 className='content__title'>Все пиццы</h2>
+            <h2 className='content__title'>Всі суші</h2>
             <div className='content__items'>
-              {pizzas.map(obj => (
-                <PizzaBlock {...obj} />
+              {sushi.map(obj => (
+                <SushiBlock key={obj.id} {...obj} />
               ))}
             </div>
           </div>

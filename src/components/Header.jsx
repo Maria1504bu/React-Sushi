@@ -5,7 +5,7 @@ const Header = () => {
     <div className='header'>
       <div className='container'>
         <div className='header__logo'>
-          <img width='38' src={logo} alt='Pizza logo' />
+          <img width='38' src={logo} alt='Sushi logo' />
           <div>
             <h1>React Sushi</h1>
             <p>Найсмачніші суші в Україні</p>
