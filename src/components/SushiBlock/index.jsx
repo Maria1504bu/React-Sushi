@@ -36,7 +36,7 @@ const SushiBlock = ({ title, price, imageUrl, types }) => {
               fill='white'
             />
           </svg>
-          <span>Добавить</span>
+          <span>Додати</span>
           <i onClick={() => setSushiCount(sushiCount++)}>0</i>
         </button>
       </div>
