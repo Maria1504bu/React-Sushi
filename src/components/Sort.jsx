@@ -3,7 +3,7 @@ import React from "react";
 const Sort = () => {
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState(0);
-  const list = ["rating", "price", "name"];
+  const list = ["рейтингу", "ціні", "імені"];
   const sortName = list[selected];
 
   const onClickListItem = (i) => {
@@ -25,7 +25,7 @@ const Sort = () => {
             fill='#2C2C2C'
           />
         </svg>
-        <b>Сортировка по:</b>
+        <b>Сортування по:</b>
         <span onClick={() => setOpen(!open)}>{sortName}</span>
       </div>
       {open && (
