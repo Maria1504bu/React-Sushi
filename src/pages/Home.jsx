@@ -1,4 +1,5 @@
 import React from "react";
+import { SearchContext } from "../App";
 import Categories from "../components/Categories";
 import Sort from "../components/Sort";
 import SushiBlock from "../components/SushiBlock";
@@ -9,17 +10,21 @@ const Home = () => {
   const [loaded, setLoaded] = React.useState(false);
   const [selectedCategoryId, setSelectedCategoryId] = React.useState(0);
   const [selectedSort, setSelectedSort] = React.useState({value: "рейтингу", sortBy: "rating", order: "desc"});
+  const {searchValue} = React.useContext(SearchContext);
 
   React.useEffect(() => {
     let sort = "?sortBy=" + selectedSort.sortBy + "&order=" + selectedSort.order;
     let category = selectedCategoryId === 0 ? '' : '&category=' + selectedCategoryId;
-    fetch("https://63f3a4c5de3a0b242b46ab95.mockapi.io/items" + sort + category)
+    let search = searchValue === '' ? '' : "&title=" + searchValue
+    let url = "https://63f3a4c5de3a0b242b46ab95.mockapi.io/items" + sort + category + search;
+
+    fetch(url)
       .then((res) => res.json())
       .then((items) => {
         setSushi(items);
         setLoaded(true);
       });
-  }, [selectedCategoryId, selectedSort]);
+  }, [selectedCategoryId, selectedSort, searchValue]);
 
   return (
     <>
