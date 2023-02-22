@@ -3,6 +3,7 @@
 .categories {
   ul {
     display: flex;
+    justify-content: space-around;
 
     li {
       background-color: #faf2e4;
@@ -25,6 +26,10 @@
       &.active {
         background-color: #282828;
         color: #fff;
+        img{
+          background: #f9f9f9;
+          border-radius: 20%;
+        }
       }
     }
   }
