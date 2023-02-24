@@ -1,5 +1,6 @@
 import React from "react";
-import { SearchContext } from "../App";
+import { useSelector, useDispatch } from "react-redux";
+import { setCategoryId, setSort } from "../redux/slices/FilterSlice";
 import Categories from "../components/Categories";
 import Sort from "../components/Sort";
 import SushiBlock from "../components/SushiBlock";
@@ -8,15 +9,15 @@ import Skeleton from "../components/SushiBlock/Skeleton";
 const Home = () => {
   const [sushi, setSushi] = React.useState([]);
   const [loaded, setLoaded] = React.useState(false);
-  const [selectedCategoryId, setSelectedCategoryId] = React.useState(0);
-  const [selectedSort, setSelectedSort] = React.useState({value: "рейтингу", sortBy: "rating", order: "desc"});
-  const {searchValue} = React.useContext(SearchContext);
+  const { categoryId, sort, searchValue } = useSelector((state) => state.filter);
+  const dispatch = useDispatch();
 
   React.useEffect(() => {
-    let sort = "?sortBy=" + selectedSort.sortBy + "&order=" + selectedSort.order;
-    let category = selectedCategoryId === 0 ? '' : '&category=' + selectedCategoryId;
+    let sortn = sort ? "?sortBy=" + sort.sortBy + "&order=" + sort.order : "";
+    console.log(sort)
+    let category = categoryId === 0 ? '' : '&category=' + categoryId;
     let search = searchValue === '' ? '' : "&title=" + searchValue
-    let url = "https://63f3a4c5de3a0b242b46ab95.mockapi.io/items" + sort + category + search;
+    let url = "https://63f3a4c5de3a0b242b46ab95.mockapi.io/items" + sortn + category + search;
 
     fetch(url)
       .then((res) => res.json())
@@ -24,13 +25,13 @@ const Home = () => {
         setSushi(items);
         setLoaded(true);
       });
-  }, [selectedCategoryId, selectedSort, searchValue]);
+  }, [categoryId, sort, searchValue]);
 
   return (
     <>
       <div className="content__top">
-        <Categories selectedId={selectedCategoryId} onChooseCategory={(id) => setSelectedCategoryId(id)} />
-        <Sort selected={selectedSort} onChooseSort={(sortObj) => setSelectedSort(sortObj)} />
+        <Categories/>
+        <Sort/>
       </div>
       <h2 className="content__title">Всі суші</h2>
       <div className="content__items">
