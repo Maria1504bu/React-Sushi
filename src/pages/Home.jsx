@@ -1,23 +1,22 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { setCategoryId, setSort } from "../redux/slices/FilterSlice";
+import { useSelector } from "react-redux";
 import Categories from "../components/Categories";
 import Sort from "../components/Sort";
 import SushiBlock from "../components/SushiBlock";
 import Skeleton from "../components/SushiBlock/Skeleton";
+import Pagination from "../components/Pagination";
 
 const Home = () => {
   const [sushi, setSushi] = React.useState([]);
   const [loaded, setLoaded] = React.useState(false);
-  const { categoryId, sort, searchValue } = useSelector((state) => state.filter);
-  const dispatch = useDispatch();
+  const { categoryId, sort, searchValue, currentPage } = useSelector((state) => state.filter);
 
   React.useEffect(() => {
-    let sortn = sort ? "?sortBy=" + sort.sortBy + "&order=" + sort.order : "";
-    console.log(sort)
+    let page = "?page=" + currentPage + "&limit=4"; 
+    let sortn = sort ? "&sortBy=" + sort.sortBy + "&order=" + sort.order : "";
     let category = categoryId === 0 ? '' : '&category=' + categoryId;
     let search = searchValue === '' ? '' : "&title=" + searchValue
-    let url = "https://63f3a4c5de3a0b242b46ab95.mockapi.io/items" + sortn + category + search;
+    let url = "https://63f3a4c5de3a0b242b46ab95.mockapi.io/items" + page + sortn + category + search;
 
     fetch(url)
       .then((res) => res.json())
@@ -25,7 +24,7 @@ const Home = () => {
         setSushi(items);
         setLoaded(true);
       });
-  }, [categoryId, sort, searchValue]);
+  }, [categoryId, sort, searchValue, currentPage]);
 
   return (
     <>
@@ -39,6 +38,7 @@ const Home = () => {
           ? sushi.map((obj) => <SushiBlock key={obj.id} {...obj} />)
           : [...new Array(4)].map(() => <Skeleton />)}
       </div>
+      <Pagination/>
     </>
   );
 };
