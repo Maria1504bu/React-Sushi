@@ -2,6 +2,7 @@
   "name": "s",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://maria1504bu.github.io/React-Sushi",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
     "@testing-library/jest-dom": "^5.16.5",
