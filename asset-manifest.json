@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.5cf05833.css",
-    "main.js": "/static/js/main.c68984b3.js",
-    "static/media/sushi-logo.png": "/static/media/sushi-logo.9889ff8cc47f0526b782.png",
-    "static/media/notFound.jpg": "/static/media/notFound.e29a00a99378a4a7e83e.jpg",
-    "index.html": "/index.html",
-    "main.5cf05833.css.map": "/static/css/main.5cf05833.css.map",
-    "main.c68984b3.js.map": "/static/js/main.c68984b3.js.map"
+    "main.css": "/React-Sushi/static/css/main.5cf05833.css",
+    "main.js": "/React-Sushi/static/js/main.d06012d6.js",
+    "static/media/sushi-logo.png": "/React-Sushi/static/media/sushi-logo.9889ff8cc47f0526b782.png",
+    "static/media/notFound.jpg": "/React-Sushi/static/media/notFound.e29a00a99378a4a7e83e.jpg",
+    "index.html": "/React-Sushi/index.html",
+    "main.5cf05833.css.map": "/React-Sushi/static/css/main.5cf05833.css.map",
+    "main.d06012d6.js.map": "/React-Sushi/static/js/main.d06012d6.js.map"
   },
   "entrypoints": [
     "static/css/main.5cf05833.css",
-    "static/js/main.c68984b3.js"
+    "static/js/main.d06012d6.js"
   ]
 }
