@@ -9,15 +9,16 @@ import Header from "./components/Header";
 import "./scss/app.scss";
 
 function App() {
+  const ghRepo = "/React-Sushi"
 
   return (
     <div className="wrapper">
-      <Header />
+      <Header ghRepo="/React-Sushi" />
       <div className="content">
         <div className="container">
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/cart" element={<Cart />} />
+            <Route path= {`${ghRepo}/`} element={<Home />} />
+            <Route path={`${ghRepo}/Cart`} element={<Cart />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>

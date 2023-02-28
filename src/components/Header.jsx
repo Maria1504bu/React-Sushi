@@ -2,11 +2,11 @@ import logo from "../assets/img/sushi-logo.png";
 import { Link } from "react-router-dom";
 import Search from "./Search";
 
-const Header = () => {
+const Header = ({ ghRepo }) => {
   return (
     <div className="header">
       <div className="container">
-        <Link to="/">
+        <Link to={ghRepo + "/"}>
           <div className="header__logo">
             <img width="38" src={logo} alt="Sushi logo" />
             <div>
@@ -17,7 +17,7 @@ const Header = () => {
         </Link>
         <Search />
         <div className="header__cart">
-          <Link to="/cart" className="button button--cart">
+          <Link to={ghRepo + "/Cart"} className="button button--cart">
             <span>520 ₴</span>
             <div className="button__delimiter"></div>
             <svg
