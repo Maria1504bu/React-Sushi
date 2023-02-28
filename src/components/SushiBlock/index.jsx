@@ -7,7 +7,7 @@ const SushiBlock = ({ title, price, imageUrl, types }) => {
 
   return (
     <div className='sushi-block'>
-      <img className='sushi-block__image' src={imageUrl} alt='Pizza' />
+      <img className='sushi-block__image' src={imageUrl} alt='Sushi img' />
       <h4 className='sushi-block__title'>{title}</h4>
       <div className='sushi-block__selector'>
         <ul>
