@@ -7,7 +7,8 @@ const Sort = () => {
   const list = [{ value: "рейтингу", sortBy: "rating", order: "desc" },
   { value: "ціні", sortBy: "price", order: "asc" },
   { value: "імені", sortBy: "name", order: "asc" }];
-  const sort = useSelector((state) => state.filter.sort)
+  const sort = useSelector((state) => state.filter.sort);
+  const sortRef = React.useRef();
   const dispatch = useDispatch();
 
   const onClickListItem = (sortObj) => {
@@ -15,8 +16,18 @@ const Sort = () => {
     setOpen(false);
   };
 
+  React.useEffect(() => {
+    const handler = (e) => {
+      if ( !e.composedPath().includes(sortRef.current)){ setOpen(false)}
+    }
+    document.body.addEventListener('click', handler);
+    return () => {
+      document.body.removeEventListener('click', handler);
+    }
+  }, [])
+  
   return (
-    <div className='sort'>
+    <div className='sort' ref={sortRef}>
       <div className='sort__label'>
         <svg
           width='10'
