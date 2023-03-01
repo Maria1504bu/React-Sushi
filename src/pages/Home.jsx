@@ -53,8 +53,6 @@ const Home = () => {
     }
     isTyped.current = false;
   }, [categoryId, sort, searchValue, currentPage]);
-  console.log(isMounted.current);
-  console.log(isTyped.current);
 
   return (
     <>

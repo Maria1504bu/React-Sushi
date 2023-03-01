@@ -1,8 +1,11 @@
 import logo from "../assets/img/sushi-logo.png";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Search from "./Search";
 
 const Header = ({ ghRepo }) => {
+  const itemsCount = useSelector((state) => state.cart.totalCount);
+  const totalPrice = useSelector((state) => state.cart.totalPrice);
   return (
     <div className="header">
       <div className="container">
@@ -18,7 +21,7 @@ const Header = ({ ghRepo }) => {
         <Search />
         <div className="header__cart">
           <Link to={ghRepo + "/Cart"} className="button button--cart">
-            <span>520 ₴</span>
+            <span>{itemsCount} ₴</span>
             <div className="button__delimiter"></div>
             <svg
               width="18"
@@ -49,7 +52,7 @@ const Header = ({ ghRepo }) => {
                 strokeLinejoin="round"
               />
             </svg>
-            <span>3</span>
+            <span>{totalPrice.toFixed(2)}</span>
           </Link>
         </div>
       </div>
