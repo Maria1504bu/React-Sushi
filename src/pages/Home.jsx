@@ -38,13 +38,7 @@ const Home = () => {
   React.useEffect(() => {
     window.scrollTo(0, 0);
     if (!isTyped.current) {
-      let page = "?page=" + currentPage + "&limit=4";
-      let sortWithOrder = sort ? "&sortBy=" + sort.sortBy + "&order=" + sort.order : "";
-      let category = categoryId === 0 ? '' : '&category=' + categoryId;
-      let search = searchValue === '' ? '' : "&title=" + searchValue
-      let url = "https://63f3a4c5de3a0b242b46ab95.mockapi.io/items" + page + sortWithOrder + category + search;
-
-      dispatch(fetchItems({ page, sortWithOrder, category, search }));
+          dispatch(fetchItems());
     }
     isTyped.current = false;
   }, [categoryId, sort, searchValue, currentPage]);
