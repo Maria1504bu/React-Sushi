@@ -11,8 +11,8 @@ import Skeleton from "../components/SushiBlock/Skeleton";
 import Pagination from "../components/Pagination";
 
 const Home = () => {
-  const { items, status } = useSelector((state) => state.items)
-  const { categoryId, sort, searchValue, currentPage } = useSelector((state) => state.filter);
+  const { items, status } = useSelector((state: any) => state.items)
+  const { categoryId, sort, searchValue, currentPage } = useSelector((state: any) => state.filter);
   const isMounted = React.useRef(false);
   const isTyped = React.useRef(false);
   const navigate = useNavigate();
@@ -38,7 +38,8 @@ const Home = () => {
   React.useEffect(() => {
     window.scrollTo(0, 0);
     if (!isTyped.current) {
-          dispatch(fetchItems());
+          dispatch(//@ts-ignore
+            fetchItems());
     }
     isTyped.current = false;
   }, [categoryId, sort, searchValue, currentPage]);
@@ -52,7 +53,7 @@ const Home = () => {
       <h2 className="content__title">Всі суші</h2>
       <div className="content__items">
         {status === "success"
-          ? items.map((obj) => <SushiBlock key={obj.id} {...obj} />)
+          ? items.map((obj: any) => <SushiBlock key={obj.id} {...obj} />)
           : [...new Array(4)].map(() => <Skeleton />)}
       </div>
       <Pagination />

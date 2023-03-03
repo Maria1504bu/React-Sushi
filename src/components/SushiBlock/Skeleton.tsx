@@ -1,7 +1,7 @@
 import React from "react"
 import ContentLoader from "react-content-loader"
 
-const MyLoader = (props) => (
+const MyLoader = () => (
   <ContentLoader className="sushi-block"
     speed={2}
     width={280}
@@ -9,7 +9,6 @@ const MyLoader = (props) => (
     viewBox="0 0 280 379.5"
     backgroundColor="#e8f8f1"
     foregroundColor="#ffecd1"
-    {...props}
   >
     <circle cx="130" cy="98" r="80"/> 
     <rect x="14" y="210" rx="0" ry="0" width="260" height="27.2" /> 

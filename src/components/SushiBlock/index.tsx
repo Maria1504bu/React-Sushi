@@ -2,17 +2,24 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addItem } from '../../redux/slices/CartSlice';
 
-const SushiBlock = ({id, title, price, imageUrl, types }) => {
-  const [activeType, setActiveType ] = React.useState(0);
-  const typeNames = ['half (4pcs)', 'full (8 pcs)'];
+type SushiProps = {
+  id: string,
+  title: string,
+  price: number,
+  imageUrl: string,
+  types: string[]
+}
+
+const SushiBlock: React.FC<SushiProps> = ({ id, title, price, imageUrl, types }) => {
+  const [activeTypeId, setActiveTypeId] = React.useState(0);
   const dispatch = useDispatch();
-  const sushiCount = useSelector((state) => {
-     const cartItem = state.cart.items.find((item) => item.id === id && item.type === typeNames[activeType]);
-     if(cartItem) return cartItem.count;
+  const sushiCount = useSelector((state: any) => {
+    const cartItem = state.cart.items.find((item: any) => item.id === id && item.type === types[activeTypeId]);
+    if (cartItem) return cartItem.count;
   })
 
   const addHandler = () => {
-    dispatch(addItem({id, title, price, imageUrl, type:typeNames[activeType]}));
+    dispatch(addItem({ id, title, price, imageUrl, type: types[activeTypeId] }));
   }
 
   return (
@@ -21,14 +28,14 @@ const SushiBlock = ({id, title, price, imageUrl, types }) => {
       <h4 className='sushi-block__title'>{title}</h4>
       <div className='sushi-block__selector'>
         <ul>
-          {types.map((type) => (
-              <li
-                key={type}
-                onClick={() => setActiveType(type)}
-                className={activeType === type ? "active" : ""}
-              >
-                {typeNames[type]}
-              </li>
+          {types.map((type, id) => (
+            <li
+              key={type}
+              onClick={() => setActiveTypeId(types.indexOf(type))}
+              className={activeTypeId === id ? "active" : ""}
+            >
+              {type}
+            </li>
           ))}
         </ul>
       </div>
