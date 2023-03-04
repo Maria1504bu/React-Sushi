@@ -1,9 +1,11 @@
+import { SushiProps } from './../../components/SushiBlock/index';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { StoreState } from '../store'
 
-export const fetchItems = createAsyncThunk('items/fetchStatus',
+export const fetchItems = createAsyncThunk<SushiProps[], void>('items/fetchStatus',
     async (_, thunkApi) => {
-        const {categoryId, sort, searchValue, currentPage} = thunkApi.getState().filter;
+        const {categoryId, sort, searchValue, currentPage} = (thunkApi.getState() as StoreState).filter;
         let page = "?page=" + currentPage + "&limit=4";
         let sortWithOrder = sort ? "&sortBy=" + sort.sortBy + "&order=" + sort.order : "";
         let category = categoryId === 0 ? '' : '&category=' + categoryId;
@@ -14,7 +16,12 @@ export const fetchItems = createAsyncThunk('items/fetchStatus',
     }
 )
 
-const initialState = {
+interface ItemsSlaceState {
+    items: SushiProps[];
+    status: "isLoading" | "success" | "error"
+}
+
+const initialState: ItemsSlaceState = {
     items : [],
     status: "isLoading"
 }

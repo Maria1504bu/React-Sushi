@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { setCategoryId } from '../redux/slices/FilterSlice';
+import { StoreState, useAppDispatch } from '../redux/store';
 
 const Categories: React.FC = () => {
   const categories = [{ name: 'Усі', imgSrc: "https://static.tildacdn.com/tild6539-3831-4766-b135-326566356437/icons8-salad-50.png" },
@@ -9,8 +10,8 @@ const Categories: React.FC = () => {
   { name: 'Wok', imgSrc: "https://static.tildacdn.com/tild6539-3831-4766-b135-326566356437/icons8-salad-50.png" },
   { name: 'Напої', imgSrc: "https://static.tildacdn.com/tild6262-3039-4238-b636-613633323836/icons8--50.png" }];
 
-  const selectedId = useSelector((state: any) => state.filter.categoryId);
-  const dispatch = useDispatch();
+  const selectedId = useSelector((state: StoreState) => state.filter.categoryId);
+  const dispatch = useAppDispatch();
   return (
     <div className='categories'>
       <ul>

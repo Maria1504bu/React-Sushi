@@ -1,22 +1,23 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom"
 import qs from "qs";
-import { setFilter } from "../redux/slices/FilterSlice";
+import { FilterSliceState, setFilter } from "../redux/slices/FilterSlice";
 import { fetchItems } from "../redux/slices/ItemsSlice";
 import Categories from "../components/Categories";
 import Sort from "../components/Sort";
-import SushiBlock from "../components/SushiBlock";
+import SushiBlock, { SushiProps } from "../components/SushiBlock";
 import Skeleton from "../components/SushiBlock/Skeleton";
 import Pagination from "../components/Pagination";
+import { StoreState, useAppDispatch } from "../redux/store";
 
 const Home = () => {
-  const { items, status } = useSelector((state: any) => state.items)
-  const { categoryId, sort, searchValue, currentPage } = useSelector((state: any) => state.filter);
+  const { items, status } = useSelector((state: StoreState) => state.items)
+  const { categoryId, sort, searchValue, currentPage } = useSelector((state: StoreState) => state.filter);
   const isMounted = React.useRef(false);
   const isTyped = React.useRef(false);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   React.useEffect(() => {
     if (isMounted.current) {
@@ -30,7 +31,7 @@ const Home = () => {
     if (window.location.search) {
 
       const params = qs.parse(window.location.search.substring(1));
-      dispatch(setFilter(params));
+      dispatch(setFilter((params as unknown) as FilterSliceState));
       isTyped.current = true;
     }
   }, []);
@@ -53,7 +54,7 @@ const Home = () => {
       <h2 className="content__title">Всі суші</h2>
       <div className="content__items">
         {status === "success"
-          ? items.map((obj: any) => <SushiBlock key={obj.id} {...obj} />)
+          ? items.map((obj: SushiProps) => <SushiBlock key={obj.id} {...obj} />)
           : [...new Array(4)].map(() => <Skeleton />)}
       </div>
       <Pagination />

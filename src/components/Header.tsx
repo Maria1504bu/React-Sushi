@@ -2,12 +2,13 @@ import logo from "../assets/img/sushi-logo.png";
 import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Search from "./Search";
+import { StoreState } from "../redux/store";
 
 type HeaderProp = {ghRepo : string};
 
 const Header : React.FC<HeaderProp> = ({ ghRepo }) => {
-  const itemsCount = useSelector((state: any) => state.cart.totalCount);
-  const totalPrice = useSelector((state: any) => state.cart.totalPrice);
+  const itemsCount = useSelector((state: StoreState) => state.cart.totalCount);
+  const totalPrice = useSelector((state: StoreState) => state.cart.totalPrice);
   const location = useLocation().pathname;
 
   return (

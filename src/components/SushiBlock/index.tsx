@@ -1,8 +1,9 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { addItem } from '../../redux/slices/CartSlice';
+import { useSelector } from 'react-redux';
+import { addItem, selectItemCount } from '../../redux/slices/CartSlice';
+import { useAppDispatch } from '../../redux/store';
 
-type SushiProps = {
+export type SushiProps = {
   id: string,
   title: string,
   price: number,
@@ -12,14 +13,13 @@ type SushiProps = {
 
 const SushiBlock: React.FC<SushiProps> = ({ id, title, price, imageUrl, types }) => {
   const [activeTypeId, setActiveTypeId] = React.useState(0);
-  const dispatch = useDispatch();
-  const sushiCount = useSelector((state: any) => {
-    const cartItem = state.cart.items.find((item: any) => item.id === id && item.type === types[activeTypeId]);
-    if (cartItem) return cartItem.count;
-  })
+  const type = types[activeTypeId]
+  const dispatch = useAppDispatch();
+  const sushiCount = useSelector(selectItemCount(id, type));
+  
 
   const addHandler = () => {
-    dispatch(addItem({ id, title, price, imageUrl, type: types[activeTypeId] }));
+    dispatch(addItem({ id, title, price, imageUrl, type, count: 1 }));
   }
 
   return (
