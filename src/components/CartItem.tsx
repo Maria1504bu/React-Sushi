@@ -28,6 +28,7 @@ const CartItem: React.FC<CartItemProps> = ({ id, title, imageUrl, price, type, c
             </div>
             <div className="cart__item-count">
                 <button
+                    disabled={count === 1}
                     onClick={onMinusItem}
                     className="button button--outline button--circle cart__item-count-minus"
                 >

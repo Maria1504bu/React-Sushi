@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Cart from "./pages/Cart";
 import Home from "./pages/Home";
+import ItemPage from "./pages/ItemPage";
 import NotFound from "./pages/NotFound";
 import Header from "./components/Header";
 
@@ -18,6 +19,7 @@ function App() {
         <div className="container">
           <Routes>
             <Route path= {`${ghRepo}/`} element={<Home />} />
+            <Route path= {`${ghRepo}/:id`} element={<ItemPage />} />
             <Route path={`${ghRepo}/Cart`} element={<Cart />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

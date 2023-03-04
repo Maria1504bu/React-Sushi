@@ -29,7 +29,6 @@ const Home = () => {
 
   React.useEffect(() => {
     if (window.location.search) {
-
       const params = qs.parse(window.location.search.substring(1));
       dispatch(setFilter((params as unknown) as FilterSliceState));
       isTyped.current = true;
@@ -39,8 +38,7 @@ const Home = () => {
   React.useEffect(() => {
     window.scrollTo(0, 0);
     if (!isTyped.current) {
-          dispatch(//@ts-ignore
-            fetchItems());
+      dispatch(fetchItems());
     }
     isTyped.current = false;
   }, [categoryId, sort, searchValue, currentPage]);
