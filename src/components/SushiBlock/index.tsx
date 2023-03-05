@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { addItem, selectItemCount } from '../../redux/slices/CartSlice';
 import { useAppDispatch } from '../../redux/store';
 
@@ -7,7 +8,9 @@ export type SushiProps = {
   id: string,
   title: string,
   price: number,
+  weight: number;
   imageUrl: string,
+  ingredients?: string,
   types: string[]
 }
 
@@ -16,7 +19,7 @@ const SushiBlock: React.FC<SushiProps> = ({ id, title, price, imageUrl, types })
   const type = types[activeTypeId]
   const dispatch = useAppDispatch();
   const sushiCount = useSelector(selectItemCount(id, type));
-  
+
 
   const addHandler = () => {
     dispatch(addItem({ id, title, price, imageUrl, type, count: 1 }));
@@ -24,8 +27,10 @@ const SushiBlock: React.FC<SushiProps> = ({ id, title, price, imageUrl, types })
 
   return (
     <div className='sushi-block'>
-      <img className='sushi-block__image' src={imageUrl} alt='Sushi img' />
-      <h4 className='sushi-block__title'>{title}</h4>
+      <Link to={`/React-Sushi/${id}`} className='sushi-block__link'>
+        <img className='sushi-block__image' src={imageUrl} alt='Sushi img' />
+        <h4 className='sushi-block__title'>{title}</h4>
+      </Link>
       <div className='sushi-block__selector'>
         <ul>
           {types.map((type, id) => (

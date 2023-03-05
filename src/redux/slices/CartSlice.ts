@@ -7,7 +7,7 @@ export type CartItemProps = {
     title: string,
     imageUrl: string,
     price: number,
-    type: string,
+    type?: string,
     count: number
 }
 
@@ -56,7 +56,7 @@ const CartSlice = createSlice({
 })
 export const { addItem, minusItem, removeItem, clearCart } = CartSlice.actions;
 
-export const selectItemCount = (id: string, type: string) => (state: StoreState) =>
+export const selectItemCount = (id: string, type: string | undefined) => (state: StoreState) =>
     state.cart.items.find((item: CartItemProps) => item.id === id && item.type === type)?.count;
 
 export default CartSlice.reducer;

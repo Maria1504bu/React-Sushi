@@ -53,7 +53,7 @@ const Home = () => {
       <div className="content__items">
         {status === "success"
           ? items.map((obj: SushiProps) => <SushiBlock key={obj.id} {...obj} />)
-          : [...new Array(4)].map(() => <Skeleton />)}
+          : [...new Array(4)].map((_, id) => <Skeleton key={id}/>)}
       </div>
       <Pagination />
     </>
