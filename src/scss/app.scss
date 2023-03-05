@@ -417,3 +417,12 @@ body {
     }
   }
 }
+
+.map path{
+  &.exist{
+    fill:green;
+  }
+  &:hover{
+    fill:aliceblue;
+  }
+}
