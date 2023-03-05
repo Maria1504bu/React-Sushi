@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/React-Sushi/static/css/main.edbc9831.css",
-    "main.js": "/React-Sushi/static/js/main.b566079a.js",
+    "main.css": "/React-Sushi/static/css/main.22cfec12.css",
+    "main.js": "/React-Sushi/static/js/main.9366bb55.js",
     "static/media/sushi-logo.png": "/React-Sushi/static/media/sushi-logo.9889ff8cc47f0526b782.png",
     "static/media/notFound.jpg": "/React-Sushi/static/media/notFound.e29a00a99378a4a7e83e.jpg",
     "static/media/empty-cart.png": "/React-Sushi/static/media/empty-cart.db905d1f4b063162f25b.png",
     "index.html": "/React-Sushi/index.html",
-    "main.edbc9831.css.map": "/React-Sushi/static/css/main.edbc9831.css.map",
-    "main.b566079a.js.map": "/React-Sushi/static/js/main.b566079a.js.map"
+    "main.22cfec12.css.map": "/React-Sushi/static/css/main.22cfec12.css.map",
+    "main.9366bb55.js.map": "/React-Sushi/static/js/main.9366bb55.js.map"
   },
   "entrypoints": [
-    "static/css/main.edbc9831.css",
-    "static/js/main.b566079a.js"
+    "static/css/main.22cfec12.css",
+    "static/js/main.9366bb55.js"
   ]
 }
