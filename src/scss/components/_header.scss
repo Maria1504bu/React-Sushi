@@ -18,6 +18,17 @@
     }
   }
 
+ &__city {
+  height: 100%;
+  font-size: 20px;
+  text-decoration: underline double $orange;
+  transition: 3 s;
+ }
+
+  &__city:hover {
+    text-decoration: underline $gray-line;
+  }
+
   &__logo {
     display: flex;
 

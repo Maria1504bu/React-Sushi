@@ -8,7 +8,7 @@ import NotFound from "./pages/NotFound";
 import Header from "./components/Header";
 
 import "./scss/app.scss";
-import MapOfUkraine from "./pages/MapOfUkraine";
+import MapOfUkraine from "./pages/ModalMap";
 
 function App() {
   const ghRepo = "/React-Sushi"
@@ -20,7 +20,6 @@ function App() {
         <div className="container">
           <Routes>
             <Route path= {`${ghRepo}/`} element={<Home />} />
-            <Route path={`${ghRepo}/Map`} element={<MapOfUkraine />} />
             <Route path= {`${ghRepo}/:id`} element={<ItemPage />} />
             <Route path={`${ghRepo}/Cart`} element={<Cart />} />
             <Route path="*" element={<NotFound />} />
