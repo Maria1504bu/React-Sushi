@@ -418,11 +418,18 @@ body {
   }
 }
 
-.map path{
-  &.exist{
-    fill:green;
+.map path {
+  fill: lightcoral;
+  stroke: bisque;
+  
+
+  &.exist {
+    fill: rgb(154, 243, 151);
   }
-  &:hover{
-    fill:aliceblue;
+
+  &:hover {
+    fill: rgb(170, 209, 243);
+    stroke: blue;
+    stroke-width: 5px;
   }
 }
