@@ -1,0 +1,165 @@
+[
+    {
+      "id": "0",
+      "imageUrl": "/set/zapechenyj-set.jpg",
+      "title": "Запечений сет",
+      "components": [
+        "3",
+        "4",
+        "5"
+      ],
+      "weight": 630,
+      "price": 380,
+      "category": 2,
+      "rating": 3
+    },
+    {
+      "id": "1",
+      "imageUrl": "/set/set-1-kilogramm.jpg",
+      "title": "Сет 1 кілограм",
+      "components": [
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "weight": 187,
+      "types": [
+        0,
+        1
+      ],
+      "price": 595,
+      "category": 2,
+      "rating": 4
+    },
+    {
+      "id": "2",
+      "imageUrl": "/set/filadelfiya-set.jpg",
+      "title": "Філадельфія сет",
+      "components": [
+        "8",
+        "11",
+        "12",
+        "13"
+      ],
+      "weight": 192,
+      "types": [
+        0,
+        1
+      ],
+      "price": 755,
+      "category": 2,
+      "rating": 4
+    },
+    {
+      "id": "3",
+      "imageUrl": "/rolls/tochi-chiken.jpg",
+      "title": "Запечений chicken рол",
+      "ingredients": "Рис, копчена курка, вершковий сир, огірок, омлет томаго, помідор, порей, соус шрирача, майонез",
+      "weight": 225,
+      "price": 139,
+      "category": 1,
+      "rating": 3
+    },
+    {
+      "id": "4",
+      "imageUrl": "/rolls/tochi-syake.jpg",
+      "title": "Запечений Sake рол",
+      "ingredients": "Рис, лосось-гриль, вершковий сир, огірок, омлет томаго, помідор, лук порей, соус шрирача, майонез",
+      "weight": 225,
+      "price": 169,
+      "category": 1,
+      "rating": 3
+    },
+    {
+      "id": "5",
+      "imageUrl": "/rolls/syrnyj-roll-hot.jpg",
+      "title": "Сирний Grill",
+      "ingredients": "Рис, вершковий сир, пармезан, запеченый сир чеддер",
+      "weight": 185,
+      "price": 119,
+      "category": 1,
+      "rating": 3
+    },
+    {
+      "id": "6",
+      "imageUrl": "/rolls/teriyaki.jpg",
+      "title": "Рол териякі",
+      "ingredients": "Рис, кунжут, лосось-гриль, вершковий сир, помідор, унагі соус",
+      "weight": 205,
+      "price": 139,
+      "category": 1,
+      "rating": 2
+    },
+    {
+      "id": "7",
+      "imageUrl": "/rolls/filadelfiya-s-lososem.jpg",
+      "title": "Філадельфія в кунжуті з лососем",
+      "ingredients": "Рис, кунжут, лосось, вершковий сир, огірок",
+      "weight": 205,
+      "price": 149,
+      "category": 1,
+      "rating": 3
+    },
+    {
+      "id": "8",
+      "imageUrl": "/rolls/filadelfiya-original.jpg",
+      "title": "Філадельфія Original",
+      "ingredients": "Рис, кунжут, лосось-гриль, вершковий сир, помідор, унагі соус",
+      "weight": 220,
+      "price": 199,
+      "category": 1,
+      "rating": 5
+    },
+    {
+      "id": "9",
+      "imageUrl": "/rolls/maki-inside-krab-krem.jpg",
+      "title": "Макі inside з краб-кремом",
+      "ingredients": "рис, кунжут, краб-крем, огірок",
+      "weight": 175,
+      "price": 79,
+      "category": 1,
+      "rating": 3
+    },
+    {
+      "id": "10",
+      "imageUrl": "/rolls/kiyashi-unagi.jpg",
+      "title": "Кіяші унагі",
+      "ingredients": "Рис, кунжут, вершковий сир, окунь унагі, водорослі кіяші, болгарський перець, унагі соус",
+      "weight": 215,
+      "price": 129,
+      "category": 1,
+      "rating": 3
+    },
+    {
+      "id": "11",
+      "imageUrl": "/rolls/filadelfiya-unagi.jpg",
+      "title": "Філадельфія Unagi",
+      "ingredients": "Рис, вугор, вершковий сир, авокадо, унагі соус, кунжут",
+      "weight": 220,
+      "price": 275,
+      "category": 1,
+      "rating": 4
+    },
+    {
+      "id": "12",
+      "imageUrl": "/rolls/filadelfiya-kunsei.jpg",
+      "title": "Філадельфія Kunsei",
+      "ingredients": "Рис, лосось х/к, вершковий сир, авокадо",
+      "weight": 220,
+      "price": 205,
+      "category": 1,
+      "rating": 2
+    },
+    {
+      "id": "13",
+      "imageUrl": "/rolls/filadelfiya-s-tuntsom.jpg",
+      "title": "Філадельфія з тунцем",
+      "ingredients": "Рис, тунець, вершковий сир, огірок, кунжут",
+      "weight": 205,
+      "price": 149,
+      "category": 1,
+      "rating": 3
+    }
+  ]

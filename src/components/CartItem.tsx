@@ -22,7 +22,7 @@ const CartItem: React.FC<CartItemProps> = ({ id, title, imageUrl, price, type, c
         <div className="cart__item">
             <Link to={`/React-Sushi/${id}`}>
                 <div className="cart__item-img">
-                    <img className="sushi-block__image" src={imageUrl} alt="Sushi" />
+                    <img className="sushi-block__image" src={"/React-Sushi/img/items" + imageUrl} alt="Sushi" />
                 </div>
             </Link>
             <div className="cart__item-info">

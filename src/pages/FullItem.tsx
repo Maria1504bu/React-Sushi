@@ -13,7 +13,7 @@ const FullItem: React.FC = () => {
   const id = params.id as string;
   const [item, setItem] = React.useState<SushiProps>();
   const [activeTypeId, setActiveTypeId] = React.useState(0);
-  const type = item?.types[activeTypeId];
+  const type =  item?.types ? item?.types[activeTypeId]: undefined;
 
   const dispatch = useAppDispatch();
   const sushiCount = useSelector(selectItemCount(id, type));
@@ -26,7 +26,7 @@ const FullItem: React.FC = () => {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    axios.get("https://63f3a4c5de3a0b242b46ab95.mockapi.io/items/" + id)
+    axios.get("https://63f3a4c5de3a0b242b46ab95.mockapi.io/itemsNew/" + id)
       .then(({ data }) => setItem(data))
       .catch(() => navigate("/notExist"));
   }, []);
@@ -36,7 +36,7 @@ const FullItem: React.FC = () => {
 
   const { title, price, ingredients, weight, imageUrl, types } = item;
   return <div className="full-item"> <div className="full-item__content left">
-    <img className='full-item__image' src={imageUrl} alt='Sushi img' />
+    <img className='full-item__image' src={"/React-Sushi/img/items" + imageUrl} alt='Sushi img' />
     <div className="free-delivery">
       <img src={deliveryIcon} alt=""></img>
       <hr></hr>
@@ -53,7 +53,7 @@ const FullItem: React.FC = () => {
     <div className="full-item__content right"><h4 className='full-item__title'>{title}</h4>
       <p className="full-item__content-ingredients">{ingredients}</p>
       <div className='full-item__selector'>
-        <ul>
+        {types && <ul>
           {types.map((t, id) => (
             <li
               key={t}
@@ -63,7 +63,7 @@ const FullItem: React.FC = () => {
               {type}
             </li>
           ))}
-        </ul>
+        </ul>}
       </div>
       <div className='full-item__bottom'>
         <div className='full-item__price'>{price} ₴</div>

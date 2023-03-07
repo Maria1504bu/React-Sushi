@@ -11,12 +11,13 @@ export type SushiProps = {
   weight: number;
   imageUrl: string,
   ingredients?: string,
-  types: string[]
+  components?: string[],
+  types?: string[]
 }
 
 const SushiBlock: React.FC<SushiProps> = ({ id, title, price, imageUrl, types }) => {
   const [activeTypeId, setActiveTypeId] = React.useState(0);
-  const type = types[activeTypeId]
+  const type = types ? types[activeTypeId] : undefined;
   const dispatch = useAppDispatch();
   const sushiCount = useSelector(selectItemCount(id, type));
 
@@ -28,11 +29,11 @@ const SushiBlock: React.FC<SushiProps> = ({ id, title, price, imageUrl, types })
   return (
     <div className='sushi-block'>
       <Link to={`/React-Sushi/${id}`} className='sushi-block__link'>
-        <img className='sushi-block__image' src={imageUrl} alt='Sushi img' />
+        <img className='sushi-block__image' src={`/React-Sushi/img/items${imageUrl}`} alt='Sushi img' />
         <h4 className='sushi-block__title'>{title}</h4>
       </Link>
       <div className='sushi-block__selector'>
-        <ul>
+        { types && <ul>
           {types.map((type, id) => (
             <li
               key={type}
@@ -42,7 +43,7 @@ const SushiBlock: React.FC<SushiProps> = ({ id, title, price, imageUrl, types })
               {type}
             </li>
           ))}
-        </ul>
+        </ul>}
       </div>
       <div className='sushi-block__bottom'>
         <div className='sushi-block__price'>{price} ₴</div>

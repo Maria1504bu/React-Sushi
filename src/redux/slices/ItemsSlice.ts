@@ -11,7 +11,7 @@ export const fetchItems = createAsyncThunk<SushiProps[], void>('items/fetchStatu
         let category = categoryId === 0 ? '' : '&category=' + categoryId;
         let search = searchValue === '' ? '' : "&title=" + searchValue
 
-        const { data } = await axios.get("https://63f3a4c5de3a0b242b46ab95.mockapi.io/items" + page + sortWithOrder + category + search);
+        const { data } = await axios.get("https://63f3a4c5de3a0b242b46ab95.mockapi.io/itemsNew" + page + sortWithOrder + category + search);
         return data;
     }
 )
