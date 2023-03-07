@@ -38,6 +38,8 @@
         }
 
         &_map {
+            width: 613px;
+            height: 408px;
             path {
                 fill: lightcoral;
                 stroke: bisque;
@@ -55,7 +57,7 @@
             }
         }
         @media (max-width : 425px) {
-            scale: 0.6;
+            scale: 0.5;
         }
     }
 }

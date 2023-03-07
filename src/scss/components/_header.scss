@@ -11,15 +11,12 @@
 
     @media (max-width: 645px) {
       flex-direction: column;
-
-      .header__cart {
-        margin-top: 20px;
-      }
     }
   }
 
  &__city {
   height: 100%;
+  margin: 10px auto;
   font-size: 20px;
   text-decoration: underline double $orange;
   transition: 3 s;
@@ -47,6 +44,12 @@
 
     p {
       color: #7b7b7b;
+      @media (max-width: 768px){
+        display: none;
+      }
     }
+  }
+  &__cart {
+    margin: 10px auto;
   }
 }

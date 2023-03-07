@@ -6,14 +6,15 @@ import { SushiProps } from '../components/SushiBlock';
 import Skeleton from '../components/SushiBlock/Skeleton';
 import { addItem, selectItemCount } from '../redux/slices/CartSlice';
 import { useAppDispatch } from '../redux/store';
-
+import deliveryIcon from '../assets/img/delivery-icon.png'
+import discountIcon from '../assets/img/discount-icon.png';
 const FullItem: React.FC = () => {
   const params = useParams();
   const id = params.id as string;
   const [item, setItem] = React.useState<SushiProps>();
   const [activeTypeId, setActiveTypeId] = React.useState(0);
   const type = item?.types[activeTypeId];
-  
+
   const dispatch = useAppDispatch();
   const sushiCount = useSelector(selectItemCount(id, type));
 
@@ -34,8 +35,22 @@ const FullItem: React.FC = () => {
   if (!item) return <Skeleton />;
 
   const { title, price, ingredients, weight, imageUrl, types } = item;
-  return <div className="full-item"> <img className='full-item__image' src={imageUrl} alt='Sushi img' />
-    <div className="full-item__content"><h4 className='full-item__title'>{title}</h4>
+  return <div className="full-item"> <div className="full-item__content left">
+    <img className='full-item__image' src={imageUrl} alt='Sushi img' />
+    <div className="free-delivery">
+      <img src={deliveryIcon} alt=""></img>
+      <hr></hr>
+      <p>  Безкоштовна доставка при замовленні від 950 грн
+      </p>
+    </div>
+    <div className="discount">
+      <img src={discountIcon} alt=""></img>
+      <hr></hr>
+      <p>
+        Знижка 0%, якщо забираєте замовлення з ресторану, крім 1+1
+      </p></div>
+  </div>
+    <div className="full-item__content right"><h4 className='full-item__title'>{title}</h4>
       <p className="full-item__content-ingredients">{ingredients}</p>
       <div className='full-item__selector'>
         <ul>
